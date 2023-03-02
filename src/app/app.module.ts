@@ -12,6 +12,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NofoundComponent } from './shared/nofound/nofound.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardUserComponent } from './components/card-user/card-user.component';
+import { UserViewComponent } from './components/home/user-view/user-view.component';
+import { FormComponent } from './components/form/form.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { CardUserComponent } from './components/card-user/card-user.component';
     FooterComponent,
     NofoundComponent,
     HomeComponent,
-    CardUserComponent
+    CardUserComponent,
+    UserViewComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
