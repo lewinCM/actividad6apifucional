@@ -21,7 +21,7 @@ export class UserViewComponent implements OnInit {
     this.activatedRoute.params.subscribe(async (params: any) => {
       let id: string = (params.userid)
       console.log(params);
-      console.log(  id);
+      console.log(id);
       let response: any = await this.usersDataService.getById(id)
 
       this.user=response

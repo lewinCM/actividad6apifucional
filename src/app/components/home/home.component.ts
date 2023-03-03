@@ -9,9 +9,7 @@ import { UsersDataService } from 'src/app/services/users-data.service';
 })
 export class HomeComponent implements OnInit {
   arrUsers: User[] = []
-  constructor(private usersDataService: UsersDataService) {
-
-  }
+  constructor(private usersDataService: UsersDataService) {}
   async ngOnInit(): Promise<void> {
    try {
     let response = await this.usersDataService.getAll()

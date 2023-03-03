@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'usuario/:userid', component: UserViewComponent },
-  { path: 'new', component: FormComponent },
-  { path: 'update/:userid', component: FormComponent },
+  { path: "new", component: FormComponent },
+  { path: "update/:userid", component: FormComponent },
   { path: '**', component: NofoundComponent }
 ];
 

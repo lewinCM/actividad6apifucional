@@ -7,6 +7,6 @@ import { User } from 'src/app/interfaces/user.interfaces';
   styleUrls: ['./card-user.component.css']
 })
 export class CardUserComponent {
-  @Input() myUser!:User
+  @Input() myUser!: User
 
 }
