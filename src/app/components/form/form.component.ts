@@ -43,102 +43,76 @@ export class FormComponent implements OnInit {
     }, [])
   }
   ngOnInit(): void {
-  this.activatedRoute.params.subscribe(async(params:any)=>{
-    // console.log(params);
-    
-    let id:string=  (params.userid)
-    if(id){
-      this.title='Actualizar usuario'
-      const response= await this.usersDataService.getById(id)
-      const user:User=response
-      console.log(user);
+    this.activatedRoute.params.subscribe(async (params: any) => {
+      // console.log(params);
 
-      // haciendo la nueva instancia
-      this.userForm = new FormGroup({
-        // campo oculto
-        id:new FormControl(id,[]),
-        // campos desde la User
-        first_name: new FormControl(user.first_name,[]),
-        last_name: new FormControl(user.last_name, []),
-        email: new FormControl(user.email, []),
+      let id: string = (params.userid)
+      if (id) {
+        this.title = 'Actualizar usuario'
+        const response = await this.usersDataService.getById(id)
+        const user: User = response
+        console.log(user);
 
-        avatar: new FormControl(user, []),
-      }, [])
+        // haciendo la nueva instancia
+        this.userForm = new FormGroup({
+          // campo oculto
+          id: new FormControl(id, []),
+          // campos desde la User
+          first_name: new FormControl(user?.first_name, [Validators.required]),
+          last_name: new FormControl(user?.last_name, [Validators.required]),
+          email: new FormControl(user?.email, [Validators.required]),
 
-
-    }
-    
-
-  })
+          avatar: new FormControl(user?.image, [Validators.required]),
+        }, [])
 
 
-    // this.activatedRoute.params.subscribe(async (params: any) => {
-    //   console.log(params); //esta son las coleccion de matricex basado a la Router
-    //   let id = (params.userid)
-    //   if (id) {
-    //     //actualizar los campos pidiendolos previamente a la bd
-    //     this.title = 'Actualizar Usuario'
-    //     // consultado los user de la api
-    //     const response = await this.usersDataService.getById(id);
-    //     const user: User = response.results;
-    //     // const user1: User = response.data;
-
-    //     this.userForm = new FormGroup({
-    //       id: new FormControl(id, []),
-    //       first_name: new FormControl(user?.first_name, []),
-    //       last_name: new FormControl(user?.last_name, []),
-    //       email: new FormControl(user?.email, []),
-    //       avatar: new FormControl(user?.image, []),
-    //     }, []);
-
-    //   }
-    // })
+      }
 
 
-
+    })
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  /**
+   * @async refiere que espera que los datos sean traidos completos
+   * este caso espera que el form sea llenado para actualizar valores
+   */
 
   async getDataForm() {
-    let user = this.userForm.value
+    let user = this.userForm.value;
+    console.log(user);
+    /**
+     * condicional para actulizar o registrar un user por medio de su id
+     */
     if (user.id) {
-      //Actualizando
-      this.usersDataService.update(user).subscribe((data: User) => {
-        if (data.updatedat) {
-          this.msg = `usuario ${data.first_name} con id ${data._id} se actualizado correctamente`
-          this.type = 'success'
-          //this.router.navigate(['/home']);
-        }
-      });
+      let resp = await this.usersDataService.create(user)
+
+      alert(`el usuario ${resp.first_name} y su id ${resp.id} se guardado correctamente`)
+      this.router.navigate(['/home'])
+
+
+
 
     } else {
-      //Registrando
+      // si no es para actualizar, debes registralo
       try {
-        let response = await this.usersDataService.create(user)
-        if (response._id) {
-          this.msg = `usuario ${response.first_name} con id ${response._id} se creado correctamente`;
-          this.type = 'success'
-          //this.router.navigate(['/home']);
+        let user: User = this.userForm.value
+        let res = await this.usersDataService.create(user)
+        console.log(res);
+        if (res.id) {
+          alert(`el usuario ${res.first_name} con id ${res.id} se creo correctamente`)
+          this.router.navigate(['/home'])
         }
+
+      } catch (error) {
+        console.log(error);
+
       }
-      catch (err) {
-        console.log(err)
-      }
+
     }
+
+
   }
+
 
 
   checkControl(pControlName: string, pError: string): boolean {

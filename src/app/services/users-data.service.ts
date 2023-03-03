@@ -34,7 +34,6 @@ export class UsersDataService {
   delete(pId: number): Promise<any> {
     return lastValueFrom(this.httpClient.delete<any>(`${this.baseUrl}${pId}`))
   }
-  // metodo DELETE
 
   deleteObs(pId: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.baseUrl}${pId}`);

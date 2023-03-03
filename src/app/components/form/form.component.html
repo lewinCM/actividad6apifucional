@@ -1,36 +1,32 @@
-
 <h1>{{title}}</h1>
 <form novalidate [formGroup]="userForm" (ngSubmit)="getDataForm()">
-<div>
-    <label for="first_name" class="form-label">Introduce el nombre</label>
-    <input 
-    class="form-control" 
-    type="text" id="first_name" 
-    formControlName="first_name"
-    >
-    <!-- <p class="error" *ngIf="checkControl('first_name', 'required')">El campo es requerido</p> -->
+    <div>
+        <label for="first_name" class="form-label">Introduce el nombre</label>
+        <input class="form-control" type="text" id="first_name" formControlName="first_name">
+        <!-- <p class="error" *ngIf="checkControl('first_name', 'required')">El campo es requerido</p> -->
 
-</div>
-<div>
-    <label for="last_name" class="form-label">Introduce el apellido</label>
-    <input class="form-control" type="text" id="last_name" formControlName="last_name">
-    <!-- <p class="error" *ngIf="checkControl('last_name', 'required')">El campo es requerido</p> -->
+    </div>
+    <div>
+        <label for="last_name" class="form-label">Introduce el apellido</label>
+        <input class="form-control" type="text" id="last_name" formControlName="last_name">
+        <!-- <p class="error" *ngIf="checkControl('last_name', 'required')">El campo es requerido</p> -->
 
-</div>
+    </div>
 
-<div>
-    <label for="email" class="form-label">Introduce el email</label>
-    <input class="form-control" type="email" id="email" formControlName="email">
-    <!-- <p class="error" *ngIf="checkControl('email', 'required')">El campo es requerido</p> -->
+    <div>
+        <label for="email" class="form-label">Introduce el email</label>
+        <input class="form-control" type="email" id="email" formControlName="email">
+        <!-- <p class="error" *ngIf="checkControl('email', 'required')">El campo es requerido</p> -->
 
-</div>
+    </div>
 
-<div>
-    <label for="image" class="form-label">Foto</label>
-    <input class="form-control" type="text" id="image" formControlName="avatar" placeholder="Url de la imagen">
-    <!-- <p class="error" *ngIf="checkControl( )">El campo es requerido</p> -->
+    <div>
+        <label for="image" class="form-label">Foto</label>
+        <input class="form-control" type="text" id="image" formControlName="avatar" placeholder="Url de la imagen">
+        <!-- <p class="error" *ngIf="checkControl( )">El campo es requerido</p> -->
 
-</div>
+    </div>
 
-    <input [routerLink]="['/home']"  type="submit" value="Guardar" class="btn btn-warning mt-3">
+    <input type="submit" value="Guardar" class="btn btn-warning mt-3">
+
 </form>
