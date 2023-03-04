@@ -11,8 +11,9 @@
                 <a [routerLink]="['/usuario',myUser._id]"> <i class="fa-solid fa-magnifying-glass"></i> Ver</a>
                 <a [routerLink]="['/update',myUser._id]"> <i
                         class="fa-sharp fa-solid fa-arrows-rotate"></i>Actulizar</a>
-                        <!-- delete -->
-                <a [routerLink]="['/usuario',myUser._id]"> <i class="fa-solid fa-trash-can"></i>Eliminar</a>
+                <!-- delete -->
+                <a (click)="deleteUserdos()"> <i class="fa-solid fa-trash-can"></i>Eliminar</a>
+                <!-- <button class="btn btn-danger" (click)="deleteUser(myUser._id)">Borrar</button> -->
             </div>
         </div>
         <div class="links">

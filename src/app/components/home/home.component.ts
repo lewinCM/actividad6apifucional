@@ -14,10 +14,10 @@ export class HomeComponent implements OnInit {
    try {
     let response = await this.usersDataService.getAll()
     this.arrUsers = response.results
-    console.log(this.arrUsers);
+    // console.log(this.arrUsers);
     
    } catch (error) {
-    console.log('hay un error en la lectura de los datos de la api',error);
+    alert('hay un error en la lectura de los datos de la api');
     
    }
 

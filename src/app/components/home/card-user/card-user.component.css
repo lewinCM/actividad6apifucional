@@ -121,3 +121,10 @@ section {
     color: #FE0000;
     
 }
+.card-flex a {
+
+    cursor: pointer;
+}
+.fa-arrows-rotate{
+    
+}

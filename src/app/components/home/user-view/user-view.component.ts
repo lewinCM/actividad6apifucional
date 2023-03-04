@@ -1,5 +1,5 @@
 import { UsersDataService } from './../../../services/users-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/interfaces/user.interfaces';
 @Component({
@@ -10,9 +10,9 @@ import { User } from 'src/app/interfaces/user.interfaces';
 export class UserViewComponent implements OnInit {
   // propiedad de comunicacion bidiricional
   user: User | any;
+  @Input() myUser!: User
+
   constructor(
-
-
     private usersDataService: UsersDataService,
     private activatedRoute: ActivatedRoute
   ) { }
@@ -26,9 +26,11 @@ export class UserViewComponent implements OnInit {
 
       this.user=response
       // console.log(response);
-
-     
     })
 
+
+    
+
   }
+  
 }
