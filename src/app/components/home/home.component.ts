@@ -9,17 +9,22 @@ import { UsersDataService } from 'src/app/services/users-data.service';
 })
 export class HomeComponent implements OnInit {
   arrUsers: User[] = []
-  constructor(private usersDataService: UsersDataService) {}
-  async ngOnInit(): Promise<void> {
-   try {
-    let response = await this.usersDataService.getAll()
-    this.arrUsers = response.results
-    // console.log(this.arrUsers);
-    
-   } catch (error) {
-    alert('hay un error en la lectura de los datos de la api');
-    
-   }
+  constructor(private usersDataService: UsersDataService) { }
+  ngOnInit(): void {
+    this.gotoPage()
+
+
+  }
+  async gotoPage(pNum: number = 1): Promise<void> {
+    try {
+      let response = await this.usersDataService.getAll(pNum)
+      this.arrUsers = response.results
+      // console.log(this.arrUsers);
+
+    } catch (error) {
+      alert('hay un error en la lectura de los datos de la api');
+
+    }
 
   }
 

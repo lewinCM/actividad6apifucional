@@ -125,6 +125,10 @@ section {
 
     cursor: pointer;
 }
-.fa-arrows-rotate{
-    
+
+.card-flex a{
+   /* border: 1px solid red; */
+   padding: 5px;
+   text-decoration: none;
+
 }

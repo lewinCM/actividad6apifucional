@@ -1,7 +1,17 @@
-<nav>
+<!-- <nav>
     <div class=" d-flex justify-content-between mb-3 bg-dark text-white p-2 shadow  border-bottom  border-3 border-danger">
         <button class="btn btn-danger  " [routerLink]="['/new']">Nuevo usuario</button>
     </div>
-</nav>
+</nav> -->
 
 
+<div class="navbar__nav">
+    <span [routerLink]="['/home']">Logo</span>
+    <div class="navbar__links-container">
+        <li class="link-item"><a [routerLink]="['/home']" class="navbar__link">Home</a></li>
+        <li class="link-item" class="btn btn-danger" [routerLink]="['/new']"><a class="navbar__link"
+                target="_blank">Nuevos Usuarios</a>
+        </li>
+    </div>
+
+</div>
