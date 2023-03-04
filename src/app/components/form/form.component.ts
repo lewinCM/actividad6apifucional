@@ -88,10 +88,6 @@ export class FormComponent implements OnInit {
 
       alert(`el usuario ${resp.first_name} y su id ${resp.id} se guardado correctamente`)
       this.router.navigate(['/home'])
-
-
-
-
     } else {
       // si no es para actualizar, debes registralo
       try {
@@ -104,7 +100,7 @@ export class FormComponent implements OnInit {
         }
 
       } catch (error) {
-        console.log(error);
+        console.log(error,' hubo un error en guardar sus datos, intenlo mas tarde');
 
       }
 
