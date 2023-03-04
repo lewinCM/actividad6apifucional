@@ -16,6 +16,7 @@ import { CardUserComponent } from './components/home/card-user/card-user.compone
 import { UserViewComponent } from './components/home/user-view/user-view.component';
 import { FormComponent } from './components/form/form.component';
 import { PaginacionComponent } from './shared/paginacion/paginacion.component';
+import { NotificacionComponent } from './components/form/notificacion/notificacion.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { PaginacionComponent } from './shared/paginacion/paginacion.component';
     CardUserComponent,
     UserViewComponent,
     FormComponent,
-    PaginacionComponent
+    PaginacionComponent,
+    NotificacionComponent
   ],
   imports: [
     BrowserModule,

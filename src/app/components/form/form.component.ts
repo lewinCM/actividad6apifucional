@@ -79,28 +79,28 @@ export class FormComponent implements OnInit {
 
   async getDataForm() {
     let user = this.userForm.value;
-    console.log(user);
+    // console.log(user);
     /**
      * condicional para actulizar o registrar un user por medio de su id
      */
     if (user.id) {
       let resp = await this.usersDataService.create(user)
 
-      alert(`el usuario ${resp.first_name} y su id ${resp.id} se guardado correctamente`)
-      this.router.navigate(['/home'])
+      this.msg = (`el usuario ${resp.first_name} y su id ${resp.id} se guardado correctamente`)
+      // this.router.navigate(['/home'])
     } else {
       // si no es para actualizar, debes registralo
       try {
         let user: User = this.userForm.value
         let res = await this.usersDataService.create(user)
-        console.log(res);
+        // console.log(res);
         if (res.id) {
-          alert(`el usuario ${res.first_name} con id ${res.id} se creo correctamente`)
-          this.router.navigate(['/home'])
+          this.msg = (`el usuario ${res.first_name} con id ${res.id} se creo correctamente`)
+          // this.router.navigate(['/home'])
         }
 
       } catch (error) {
-        console.log(error,' hubo un error en guardar sus datos, intenlo mas tarde');
+        console.log(error, ' hubo un error en guardar sus datos, intenlo mas tarde');
 
       }
 

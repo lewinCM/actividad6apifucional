@@ -2,8 +2,11 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* min-height: 50vh; */
+    min-height: 50vh;
     /* background: #646069; */
+ 
+  
+    
 }
 
 .card {
@@ -13,9 +16,11 @@ section {
     border-radius: 10px;
     box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
     margin: 40px;
+  
 }
 
 .card .content {
+    /* border: 1px solid red; */
     position: relative;
     z-index: 100;
     width: 100%;

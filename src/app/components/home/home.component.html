@@ -1,16 +1,19 @@
-
 <section class="container mt-2">
     <div class="row g-3">
         <!-- paginacion -->
         <div class="container ">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" (click)="gotoPage(1)">Previous</a></li>
-                    <li class="page-item"><a class="page-link" (click)="gotoPage(2)">Next</a></li>
+                    <li class="page-item"><button class="page-link" (click)="gotoPage(currentPage - 1)"
+                            [disabled]="currentPage === 1"> <i class="fa-solid fa-circle-chevron-left"></i></button>
+                    </li>
+                    <li class="page-item"><button class="page-link" (click)="gotoPage(currentPage + 1)"
+                            [disabled]="currentPage === totalPages"><i
+                                class="fa-solid fa-circle-chevron-right"></i></button></li>
                 </ul>
             </nav>
         </div>
-<!-- card -->
+        <!-- card -->
         <article class="col-12 col-md-6 col-lg-4" *ngFor="let item of arrUsers ">
             <app-card-user [myUser]="item"></app-card-user>
 

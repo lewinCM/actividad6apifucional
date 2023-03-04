@@ -9,6 +9,10 @@ import { UsersDataService } from 'src/app/services/users-data.service';
 })
 export class HomeComponent implements OnInit {
   arrUsers: User[] = []
+  currentPage: number = 1;
+  totalPages: number = 1;
+
+
   constructor(private usersDataService: UsersDataService) { }
   ngOnInit(): void {
     this.gotoPage()
@@ -18,8 +22,13 @@ export class HomeComponent implements OnInit {
   async gotoPage(pNum: number = 1): Promise<void> {
     try {
       let response = await this.usersDataService.getAll(pNum)
+       console.log(response);
+      this.currentPage=response.page
+      this.totalPages = response.total_pages;
+
       this.arrUsers = response.results
-      // console.log(this.arrUsers);
+   
+     
 
     } catch (error) {
       alert('hay un error en la lectura de los datos de la api');

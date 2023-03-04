@@ -1,11 +1,19 @@
-.container{
+.container {
     /* border: 1px solid red ; */
     padding-top: 10px;
     padding-bottom: -10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+}
 
-    
+.pagination {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.fa-solid {
+    font-size: 30px;
+    color: #ac30bf;
 }
