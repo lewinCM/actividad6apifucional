@@ -88,6 +88,7 @@ export class FormComponent implements OnInit {
 
       this.msg = (`el usuario ${resp.first_name} y su id ${resp.id} se guardado correctamente`)
       // this.router.navigate(['/home'])
+      this.type='success'
     } else {
       // si no es para actualizar, debes registralo
       try {
@@ -106,11 +107,7 @@ export class FormComponent implements OnInit {
 
     }
 
-
   }
-
-
-
   checkControl(pControlName: string, pError: string): boolean {
     if (this.userForm.get(pControlName)?.hasError(pError) && this.userForm.get(pControlName)?.touched) {
       return true
